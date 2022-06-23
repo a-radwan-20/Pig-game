@@ -10,6 +10,8 @@ const diceElem = document.querySelector('.dice');
 const btnNewElem = document.querySelector('.btn--new')
 const btnRollElem = document.querySelector('.btn--roll')
 const btnKeepElem = document.querySelector('.btn--keep')
+const inputScoreElem = document.querySelector('.input--score')
+const btnScoreElem = document.querySelector('.btn--score')
 
 //Global var
 let currentScore = 0;
@@ -17,11 +19,17 @@ let totalScore = 0;
 
 let activePlayer = 0;
 let scoreArray = [0, 0];
+let newScore = 100;
 
 //Get a Random number
 const randNum = function () {
   return Math.trunc(Math.random() * 6) + 1
 }
+
+//If another score value entered in bottom input text 
+btnScoreElem.addEventListener('click', function () {
+  newScore = Number(inputScoreElem.value)
+})
 
 //Function to switch a player
 const switchPlayer = function () {
@@ -73,7 +81,7 @@ btnKeepElem.addEventListener('click', function () {
   currentScore = 0;
   document.getElementById(`score--${activePlayer}`).textContent = scoreArray[activePlayer]
 
-  if (scoreArray[activePlayer] >= 20) {
+  if (scoreArray[activePlayer] >= newScore) {
     document.getElementById(`score--${activePlayer}`).textContent = `Winner`
     document.querySelector(`.player--${activePlayer}`).classList.add('player--winner')
     document.querySelector(`.player--${activePlayer}`).classList.remove('player--active')

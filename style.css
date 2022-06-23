@@ -19,7 +19,8 @@ body {
   height: 100vh;
   color: #333;
   background-image: linear-gradient(to top, #fff0f6 0%, #fff 100%);
-  display: flex;
+  display: grid;
+
   align-items: center;
   justify-content: center;
 }
@@ -28,14 +29,16 @@ body {
 main {
   position: relative;
   width: 100rem;
-  height: 60rem;
+  height: 60%;
   background-color: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(200px);
   filter: blur();
-  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
-  border-radius: 9px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.1);
+  border-radius: 1px;
+  display: grid;
   overflow: hidden;
-  display: flex;
+  margin-bottom: 4rem;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .player {
@@ -118,7 +121,6 @@ main {
   font-weight: 500;
   transition: all 0.2s;
 
-  background-color: white;
   background-color: rgba(255, 240, 246, 0.384);
   backdrop-filter: blur(10px);
 
@@ -128,27 +130,22 @@ main {
   box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.75);
 }
 
-/* .btn::first-letter {
-  font-size: 2.4rem;
-  display: inline-block;
-  margin-right: 0.7rem;
-} */
-
 .btn--new {
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.02);
   display: flex;
   gap: 0.75rem;
   align-items: center;
   justify-content: center;
   font-weight: 500;
   top: -3px;
-  width: 100%;
+  width: 20%;
 }
 
 .btn--roll {
-  top: 39.5rem;
+  top: 28rem;
 }
 .btn--keep {
-  top: 50.9rem;
+  top: 35rem;
 }
 
 .btn:active {
@@ -163,7 +160,7 @@ main {
 .dice {
   position: absolute;
   left: 50%;
-  top: 35%;
+  top: 25%;
 
   transform: scaleY(1) translateX(-50%);
   height: 10rem;
@@ -186,4 +183,31 @@ main {
   border: none;
   font-family: inherit;
   cursor: pointer;
+}
+
+.input--score {
+  display: block;
+  width: 20%;
+  position: absolute;
+  bottom: 3.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  justify-content: center;
+  font-size: 2.4rem;
+  font-family: inherit;
+  border: #d6336c;
+  /* margin-bottom: 1.2rem; */
+  /* margin-top: 5rem; */
+
+  /* box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.1); */
+  /* background-color: rgb(251, 224, 233); */
+}
+.btn--score {
+  bottom: 0;
+  width: 20%;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.9);
+  background-color: #fff;
+  font-size: 1.6rem;
+  border: #d6336c;
 }
